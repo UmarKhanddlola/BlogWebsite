@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+
+{% block title %}
+  About
+{% endblock %}
+
+{% block body %}
+  {% comment %}here all body code{% endcomment %}
+  <div class="container my-4">
+    <div class="row" id="box-search">
+      <div class="thumbnail text-center">
+        {% load static %}
+        <img src="{% static 'about us.jpeg' %}" style="width: 100%;" alt="About Us" class="img-responsive" />
+        <div class="caption">
+          <h1 style="opacity:inherit;"><b>About us</b></h1>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="container-fluid">
+    <div class="container my-4 text-center">
+      <p class="lead" style="text-align: left;">
+        {% lorem 4 b random %}
+      </p>
+    </div>
+  </div>
+{% endblock %}

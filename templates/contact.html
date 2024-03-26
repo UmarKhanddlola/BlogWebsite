@@ -1,0 +1,46 @@
+{% extends "base.html" %}
+
+{% block title %}Contact{% endblock title %}
+
+{% block body %}
+<div class="container-fluid">
+  {% comment %} here all body code {% endcomment %}
+
+  <div class="container" align="left">
+
+    <div class="container-fluid my-4 text-center">
+      <h1>Contact Us</h1>
+    </div>
+
+    <div class="container my-4 mx-4">
+      <form action="{% url "contact" %}" method="post">
+        {% csrf_token %}
+        <div class="form-group">
+          <label for="FirstName">First Name</label>
+          <input style="text-align: left; margin-top: 10px; direction: ltr;" type="text" class="form-control" name="FirstName" placeholder="Enter your first name">
+        </div>
+        <br>
+        <div class="form-group">
+          <label for="LastName">Last Name</label>
+          <input style="text-align: left; margin-top: 10px; direction: ltr;" type="text" class="form-control" name="LastName" placeholder="Enter your last name">
+        </div>
+        <br>
+        <div class="form-group">
+          <label for="Email">Email address</label>
+          <input type="email" style="direction: ltr;" class="form-control" name="Email" placeholder="Enter email">
+        </div>
+        <br>
+        <div class="form-group">
+          <label for="Message">Type your message here</label>
+          <textarea style="text-align: left; direction: ltr;" class="form-control"  name="Message" rows="10"></textarea>
+        </div>
+        <br>
+        <br>
+        <button type="submit" class="btn btn-primary">Submit</button>
+      </form>
+    </div>
+  </div>
+
+</div>
+{% endblock body %}
+

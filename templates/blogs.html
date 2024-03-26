@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+
+{% block title %}
+  Blogs
+{% endblock %}
+
+{% block body %}
+  <div class="container-fluid" align="left">
+    {% comment %}here all body code{% endcomment %}
+
+    <div class="container-fluid text-center my-4">
+      <h1>My Blogs</h1>
+    </div>
+
+    {% for blog in BlogList %}
+    <div class="container-fluid my-4 py-4">
+      <div class="container-fluid my-4">
+          <div class="card text-bg-secondary my-4">
+            <div class="card-body">
+              <h5 class="card-title text-center" style="direction: ltr;">{{ blog.BlogTitle }}</h5>
+              <br>
+              <p class="card-text" style="direction: ltr;">{{ blog.BlogContent }} <br><br><br> Published On: {{blog.BlogPublishDate}}</p>
+            </div>
+          </div>
+      </div>
+    </div>
+    {% endfor %}
+
+  </div>
+{% endblock %}

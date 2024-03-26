@@ -1,0 +1,67 @@
+{% extends 'base.html' %}
+
+{% block title %}
+  Home
+{% endblock %}
+
+{% block body %}
+  <div class="container-fluid my-4 px-4" style="direction: ltr;">
+    {% comment %}here all body code{% endcomment %}
+    <div id="carouselExampleDark" class="carousel carousel-Light slide">
+      <div class="carousel-indicators">
+        <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+        <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="1" aria-label="Slide 2"></button>
+        <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="2" aria-label="Slide 3"></button>
+      </div>
+      <div class="carousel-inner">
+        <div class="carousel-item active" data-bs-interval="10000">
+          {% load static %}
+          <img src="{% static 'homepageScrollImages/1.PNG' %}" style="opacity: 20;" class="d-block w-100" alt="..." />
+        </div>
+        <div class="carousel-item" data-bs-interval="2000">
+          {% load static %}
+          <img src="{% static 'homepageScrollImages/2.png' %}" style="opacity: 20;" class="d-block w-100" alt="..." />
+        </div>
+        <div class="carousel-item">
+          {% load static %}
+          <img src="{% static 'homepageScrollImages/3.jpeg' %}" style="opacity: 20;" class="d-block w-100" alt="..." />
+        </div>
+      </div>
+      <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleDark" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+      </button>
+      <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleDark" data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+      </button>
+    </div>
+  </div>
+</div>
+<div class="album py-2 bg-light">
+  <h1 class="container text-center my-4">Some of the blogs created by me</h1>
+  <div class="container text-center">
+
+    <div class="row">
+      {% load new-tags %}
+      {% for blog in BlogList %}
+      <div class="col-md-4">
+        <div class="card mb-4 box-shadow">
+          <div class="card-body">
+            <h1>{{blog.BlogTitle }}</h1>
+            <p class="card-text" style="direction: ltr;">{% slice blog.BlogContent 300 %}..</p>
+            <div class="d-flex justify-content-between align-items-center">
+              <div class="btn-group">
+                <button type="button" class="btn btn-sm btn-outline-primary" ><a href="blogs" style="text-decoration: none;">Continue reading</a></button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      {% endfor %}
+        
+    </div>
+  </div>
+</div>
+
+{% endblock %}
